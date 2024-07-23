@@ -1,62 +1,69 @@
-// src/firebase/Promesas.tsx
-
-
 import { addDoc, collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "./Firebase";
-import { Persona } from "../Interfaces/interfaces"
+import { Ciclista } from "../Interfaces/interfaces"
 
-
-
-export const registrarPersona = async (persona: Persona) => {
-  const docRef = await addDoc(collection(db, "persona"), persona);
+export const registrarCiclista = async (formData: any) => {
+  try {
+    const docRef = await addDoc(collection(db, 'ciclistas'), formData);
+    console.log('Documento escrito con ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error al añadir documento: ', e);
+    throw e;
+  }
 };
 
-export const obtenerPersonas = async () => {
-  const querySnapshot = await getDocs(collection(db, "persona"));
-  let personas: Persona[] = [];
+export const obtenerCiclistas = async () => {
+  const querySnapshot = await getDocs(collection(db, "ciclistas"));
+  let ciclistas: Ciclista[] = [];
   querySnapshot.forEach((doc) => {
-    let persona: Persona = {
+    let ciclista: Ciclista = {
       nombre: doc.data().nombre,
       apellido: doc.data().apellido,
-      correo: doc.data().correo,
+      contraseña: doc.data().contraseña,
       fechaNacimiento: doc.data().fechaNacimiento,
-      rut: doc.data().rut,
-      edad: doc.data().edad,
+      sexo: doc.data().sexo,
+      categoria: doc.data().categoria,
+      bicicleta: doc.data().bicicleta,
+      opinion: doc.data().opinion,
       key: doc.id
     };
-    personas.push(persona);
+    ciclistas.push(ciclista);
   });
-  return personas;
+  return ciclistas;
 };
 
-export const obtenerPersona = async (key: string) => {
-  const docRef = doc(db, "persona", key);
+export const obtenerCiclista = async (key: string) => {
+  const docRef = doc(db, "ciclistas", key);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    let persona: Persona = {
+    let ciclista: Ciclista = {
       nombre: docSnap.data().nombre,
       apellido: docSnap.data().apellido,
-      correo: docSnap.data().correo,
+      contraseña: docSnap.data().contraseña,
       fechaNacimiento: docSnap.data().fechaNacimiento,
-      rut: docSnap.data().rut,
-      edad: docSnap.data().edad,
+      sexo: docSnap.data().sexo,
+      categoria: docSnap.data().categoria,
+      bicicleta: docSnap.data().bicicleta,
+      opinion: docSnap.data().opinion,
       key: docSnap.id
     };
-    return persona;
+    return ciclista;
   } else {
     return undefined;
   }
 };
 
-export const modificarPersona = async (persona: Persona) => {
-  const ref = doc(collection(db, "persona"), persona.key);
+export const modificarCiclista = async (ciclista: Ciclista) => {
+  const ref = doc(collection(db, "ciclistas"), ciclista.key);
   await updateDoc(ref, {
-    nombre: persona.nombre,
-    apellido: persona.apellido,
-    rut: persona.rut,
-    edad: persona.edad,
-    fechaNacimiento: persona.fechaNacimiento,
-    correo: persona.correo
+    nombre: ciclista.nombre,
+    apellido: ciclista.apellido,
+    contraseña: ciclista.contraseña,
+    fechaNacimiento: ciclista.fechaNacimiento,
+    sexo: ciclista.sexo,
+    categoria: ciclista.categoria,
+    bicicleta: ciclista.bicicleta,
+    opinion: ciclista.opinion
   });
 };
 

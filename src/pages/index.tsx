@@ -1,5 +1,3 @@
-// src/pages/index.js
-
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -8,12 +6,12 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function HomePage() {
+export default function LandingPage() {
   return (
     <Container>
       {/* Navbar */}
       <Navbar bg="light" expand="lg" className="navbar-custom">
-        <Navbar.Brand href="#home" >Team Bukana</Navbar.Brand>
+        <Navbar.Brand href="#home">Team Bukana</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -90,5 +88,3 @@ function HomePage() {
     </Container>
   );
 }
-
-export default HomePage;

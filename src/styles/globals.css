@@ -1,0 +1,23 @@
+.card {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .card h1 {
+    text-align: center;
+  }
+  
+  .card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card form input,
+  .card form textarea,
+  .card form select,
+  .card form button {
+    margin: 10px 0;
+  }
+  
