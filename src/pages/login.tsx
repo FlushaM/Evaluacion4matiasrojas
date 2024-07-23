@@ -5,8 +5,7 @@ import { useRouter } from 'next/router';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { getDoc, doc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { getAdminUser } from './Firebase/Promesas';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -16,21 +15,14 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const docRef = doc(db, 'admin', 'admin'); // Asegúrate que el ID del documento es 'admin'
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        const adminData = docSnap.data();
-        if (adminData.username === username && adminData.password === password) {
-          router.push('/dashboard');
-        } else {
-          alert('Usuario o contraseña incorrectos');
-        }
+      const adminData = await getAdminUser();
+      if (adminData && adminData.username === username && adminData.password === password) {
+        router.push('/dashboard');
       } else {
-        alert('No se encontró el usuario admin');
+        alert('Usuario o contraseña incorrectos');
       }
     } catch (error) {
-      console.error("Error al obtener el documento:", error);
+      console.error("Error al intentar iniciar sesión:", error);
       alert('Error al intentar iniciar sesión');
     }
   };
