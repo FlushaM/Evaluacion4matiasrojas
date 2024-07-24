@@ -1,4 +1,3 @@
-// src/pages/register.tsx
 import RegisterUserForm from '@/componentes/RegisterUserForm';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

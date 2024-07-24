@@ -1,4 +1,3 @@
-// src/componentes/ProgressBar.tsx
 import React from 'react';
 import { ProgressBar } from 'react-bootstrap';
 

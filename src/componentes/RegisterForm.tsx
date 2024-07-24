@@ -1,4 +1,3 @@
-// src/componentes/RegisterForm.tsx
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { registrarCiclista } from '../pages/Firebase/Promesas';

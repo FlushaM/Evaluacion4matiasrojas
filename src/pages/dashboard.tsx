@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-
 const Dashboard: React.FC = () => {
   const router = useRouter();
 
@@ -17,32 +16,26 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container fluid className="dashboard-container">
-      {/* Navbar */}
       <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">Team Bukana Dashboard</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            
-            
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Banner */}
       <Row className="banner">
         <Col md={12} className="text-center">
           <h2>Bienvenido al Dashboard</h2>
         </Col>
       </Row>
 
-      {/* Dark Section */}
       <Row className="dark-section">
         <Col md={12}></Col>
       </Row>
 
-      {/* Main Content */}
       <Row className="main-content">
         <Col md={12} className="text-center">
           <Button
@@ -62,10 +55,18 @@ const Dashboard: React.FC = () => {
           >
             Ver Ciclistas
           </Button>
+          <br />
+          <Button
+            variant="secondary"
+            size="lg"
+            className="action-button"
+            onClick={() => navigateTo('/datos-usuarios')}
+          >
+            Ver Usuarios
+          </Button>
         </Col>
       </Row>
 
-      {/* Dark Section */}
       <Row className="dark-section">
         <Col md={12}></Col>
       </Row>

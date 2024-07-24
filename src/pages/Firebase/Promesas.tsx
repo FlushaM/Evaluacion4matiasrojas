@@ -102,3 +102,32 @@ export const registrarUsuario = async (formData: any) => {
     throw e;
   }
 };
+
+export const obtenerUsuarios = async () => {
+  const querySnapshot = await getDocs(collection(db, "usuarios"));
+  let usuarios: any[] = [];
+  querySnapshot.forEach((doc) => {
+    let usuario = {
+      nombre: doc.data().nombre,
+      apellido: doc.data().apellido,
+      email: doc.data().email,
+      key: doc.id
+    };
+    usuarios.push(usuario);
+  });
+  return usuarios;
+};
+
+export const modificarUsuario = async (usuario: any) => {
+  const ref = doc(collection(db, "usuarios"), usuario.key);
+  await updateDoc(ref, {
+    nombre: usuario.nombre,
+    apellido: usuario.apellido,
+    email: usuario.email,
+  });
+};
+
+export const eliminarUsuario = async (key: string) => {
+  const ref = doc(db, "usuarios", key);
+  await deleteDoc(ref);
+};
