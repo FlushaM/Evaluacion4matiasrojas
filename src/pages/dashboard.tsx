@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => navigateTo('/datos-ciclistas')}
+            onClick={() => navigateTo('/datos-cilcistas')}
           >
             Ver Ciclistas
           </Button>

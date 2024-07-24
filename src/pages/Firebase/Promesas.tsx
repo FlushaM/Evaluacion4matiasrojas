@@ -1,6 +1,6 @@
-import { addDoc, collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./Firebase";
-import { Ciclista } from "../Interfaces/interfaces"
+import { Ciclista } from "../Interfaces/interfaces";
 
 export const registrarCiclista = async (formData: any) => {
   try {
@@ -65,6 +65,11 @@ export const modificarCiclista = async (ciclista: Ciclista) => {
     bicicleta: ciclista.bicicleta,
     opinion: ciclista.opinion
   });
+};
+
+export const eliminarCiclista = async (key: string) => {
+  const ref = doc(db, "ciclistas", key);
+  await deleteDoc(ref);
 };
 
 export const getAdminUser = async () => {

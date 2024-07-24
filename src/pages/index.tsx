@@ -5,11 +5,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image';
 
 export default function LandingPage() {
   return (
     <Container>
-      {/* Navbar */}
       <Navbar bg="light" expand="lg" className="navbar-custom">
         <Navbar.Brand href="#home">Team Bukana</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -30,26 +31,64 @@ export default function LandingPage() {
       <Row>
         {/* Left Sidebar */}
         <Col md={2}>
-          {/* Placeholder for left sidebar content */}
+          <div 
+            className='interior-izquierda' 
+            style={{ backgroundImage: `url('/path/to/image1.jpg')`, height: '500px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          ></div>
         </Col>
 
         {/* Center Images */}
         <Col md={8}>
           <Row>
             <Col md={6}>
-              {/* Placeholder for image 1 */}
-              <div className='' style={{ backgroundColor: '#eee', height: '200px' }}></div>
+              <div 
+                style={{ backgroundImage: `url('/path/to/image2.jpg')`, backgroundColor: '#eee', height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+              ></div>
             </Col>
             <Col md={6}>
-              {/* Placeholder for image 2 */}
-              <div style={{ backgroundColor: '#eee', height: '200px' }}></div>
+              <div 
+                style={{ backgroundImage: `url('/path/to/image3.jpg')`, backgroundColor: '#eee', height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+              ></div>
+              
+            </Col>
+          </Row>
+          <Row className="mt-4">
+            <Col md={4}>
+              <Card>
+                <Card.Img variant="top" src='/img/mtbfoto.jpg'/>
+                <Card.Body>
+                  <Card.Title>MTB</Card.Title>
+                  <Card.Text>Mountain biking competitions</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <Card.Img variant="top" src='/img/foto1.jpg' />
+                <Card.Body>
+                  <Card.Title>XC</Card.Title>
+                  <Card.Text>Cross-country competitions</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card>
+                <Card.Img variant="top" src="/img/dhfoto.jpg"/>
+                <Card.Body>
+                  <Card.Title>DH</Card.Title>
+                  <Card.Text>Downhill competitions</Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Col>
 
         {/* Right Sidebar */}
         <Col md={2}>
-          {/* Placeholder for right sidebar content */}
+          <div 
+            className='interior-derecha' 
+            style={{ backgroundImage: `url('src/img/TomPidcock.jfif')`, height: '500px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          ></div>
         </Col>
       </Row>
 
@@ -77,7 +116,6 @@ export default function LandingPage() {
               Enviar
             </Button>
           </Form>
-
         </Col>
       </Row>
 
