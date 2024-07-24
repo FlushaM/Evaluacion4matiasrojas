@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="form-login">
       <h2>Login</h2>
       <Form onSubmit={handleLogin}>
         <Form.Group controlId="formUsername">

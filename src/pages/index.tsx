@@ -6,12 +6,14 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image';
+import Carousel from 'react-bootstrap/Carousel';
+import { Span } from 'next/dist/trace';
+
 
 export default function LandingPage() {
   return (
-    <Container>
-      <Navbar bg="light" expand="lg" className="navbar-custom">
+    <Container >
+      <Navbar bg="light" expand="lg" className="navbar-custom mb-custom p-3">
         <Navbar.Brand href="#home">Team Bukana</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -22,58 +24,89 @@ export default function LandingPage() {
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Header */}
-      <header className="titulo-bukana">
+      <header className="titulo-bukana mb-custom">
         <h1>Team Bukana</h1>
       </header>
 
-      {/* Main Content */}
-      <Row>
-        {/* Left Sidebar */}
-        <Col md={2}>
+      {/* Carousel */}
+      <Row className="mb-custom">
+        <Col md={12}>
+          <Carousel >
+            <Carousel.Item>
+            <iframe width="100%" height="800px" src="https://www.youtube.com/embed/N2IJFzhW_Gc?si=GAEle9THBI5AHa-z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <Carousel.Caption>
+                <h3>Rutas Mortales</h3>
+                <p>Mtb en peru rutas incas.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="img-carrusel"
+                src="img/bannercarrusel.jpg"
+                alt="Second slide"
+              />
+              <Carousel.Caption>
+                <h3>Maxxis</h3>
+                <p>Neumaticos de calidad y que no te dejaran atras.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="img/atacamamtb.jpg"
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3>Desierto de atacama</h3>
+                <p>XraceDR realizada en el desierto de atacama.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </Col>
+      </Row>
+
+      
+
+      <Row className="mb-custom">
+        <Col  md={{span:2 , offset:0}}   className="p-2 mb-custom">
           <div 
             className='interior-izquierda' 
-            style={{ backgroundImage: `url('/path/to/image1.jpg')`, height: '500px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{ backgroundImage: `url('/src/img/Tom Pidcock.jfif')`, height: '100%', backgroundSize: 'cover', backgroundPosition: 'center',width: '100%'}}
           ></div>
         </Col>
 
-        {/* Center Images */}
         <Col md={8}>
-          <Row>
-            <Col md={6}>
-              <div 
-                style={{ backgroundImage: `url('/path/to/image2.jpg')`, backgroundColor: '#eee', height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
+          <Row className="mb-custom  p-5">
+            <Col md={{span:12}} className="mb-custom">
+              <div className='hero-custom-img'
+                style={{ backgroundImage: `url('/img/foto1.jpg')`, height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
               ></div>
-            </Col>
-            <Col md={6}>
-              <div 
-                style={{ backgroundImage: `url('/path/to/image3.jpg')`, backgroundColor: '#eee', height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
-              ></div>
-              
+              <p>Te invitamos a unirte a esta gran comunidad bukana a disfrutar del bello deporte del MTB.</p>
             </Col>
           </Row>
-          <Row className="mt-4">
-            <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src='/img/mtbfoto.jpg'/>
+
+          <Row className="mb-custom  p-0  tamaño"  >
+            <Col md={4} className="mb-custom">
+              <Card className='card-bicis'>
+                <Card.Img variant="top" src='img/mtbfoto.jpg' className='imagen-bicis-card' />
                 <Card.Body>
                   <Card.Title>MTB</Card.Title>
                   <Card.Text>Mountain biking competitions</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src='/img/foto1.jpg' />
+            <Col md={4} className="mb-custom">
+              <Card className='card-bicis'>
+                <Card.Img variant="top" src='img/foto1.jpg' className='imagen-bicis-card' />
                 <Card.Body>
                   <Card.Title>XC</Card.Title>
                   <Card.Text>Cross-country competitions</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src="/img/dhfoto.jpg"/>
+            <Col md={4} className="mb-custom">
+              <Card className='card-bicis'>
+                <Card.Img variant="top" src="img/dhfoto.jpg" className='imagen-bicis-card'/>
                 <Card.Body>
                   <Card.Title>DH</Card.Title>
                   <Card.Text>Downhill competitions</Card.Text>
@@ -81,46 +114,42 @@ export default function LandingPage() {
               </Card>
             </Col>
           </Row>
-        </Col>
-
-        {/* Right Sidebar */}
-        <Col md={2}>
-          <div 
-            className='interior-derecha' 
-            style={{ backgroundImage: `url('src/img/TomPidcock.jfif')`, height: '500px', backgroundSize: 'cover', backgroundPosition: 'center' }}
-          ></div>
+          <Row>
+          </Row>
         </Col>
       </Row>
 
-      {/* Contact Form */}
-      <Row className="my-4">
-        <Col md={12}>
-          <h2>Contacto</h2>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" placeholder="Ingresa tu nombre" />
-            </Form.Group>
+      <>
+        <div className='formulario-contacto'>
+          <Row className="my-custom">
+            <Col md={12}>
+              <h2>Contacto</h2>
+              <Form>
+                <Form.Group controlId="formName" className="mb-custom">
+                  <Form.Label>Nombre</Form.Label>
+                  <Form.Control type="text" placeholder="Ingresa tu nombre" />
+                </Form.Group>
 
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Ingresa tu email" />
-            </Form.Group>
+                <Form.Group controlId="formEmail" className="mb-custom">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Ingresa tu email" />
+                </Form.Group>
 
-            <Form.Group controlId="formMessage">
-              <Form.Label>Mensaje</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Escribe tu mensaje" />
-            </Form.Group>
+                <Form.Group controlId="formMessage" className="mb-custom">
+                  <Form.Label>Mensaje</Form.Label>
+                  <Form.Control as="textarea" rows={3} placeholder="Escribe tu mensaje" />
+                </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Enviar
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+                <Button variant="primary" type="submit">
+                  Enviar
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+        </div>
+      </>
 
-      {/* Footer */}
-      <footer className="text-center my-4">
+      <footer className="text-center my-custom">
         <p>&copy; 2024 Team Bukana. Todos los derechos reservados.</p>
       </footer>
     </Container>

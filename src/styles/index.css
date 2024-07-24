@@ -1,15 +1,37 @@
 /* styles/index.css */
+body{
+  background-color: #e7ddd3;
+}
+.mt-custom {
+  margin-top: 70px;  /* Puedes ajustar el valor según necesites */
+}
+
+.mb-custom {
+  margin-bottom: 70px;  /* Puedes ajustar el valor según necesites */
+}
+
+.pt-custom {
+  padding-top: 70px;  /* Puedes ajustar el valor según necesites */
+}
+
+.pb-custom {
+  padding-bottom: 70px;  /* Puedes ajustar el valor según necesites */
+}
+
+
 
 .navbar-custom {
     justify-content: center;
-    background-color: #f8f9fa;
+    background-color: #c0c2bd;
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: absolute;
+    border-radius: 10px;
 
   }
   
   .navbar-custom .navbar-nav {
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     margin: 0;
@@ -21,6 +43,7 @@
   }
   
   .navbar-custom .nav-link {
+    justify-content: center;
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
@@ -31,16 +54,55 @@
     letter-spacing: 0.5px;
     font-family: 'Poppins', sans-serif;
   }
+
+.p{
+  color: black;
+  font-size: 20px;
+}
   
 .titulo-bukana{
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 30px;
-    color: #343A40;
-    padding: 5%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #f1f1f1;
+  transition: color 0.3s ease;
+  border: none;
+  background-color: #29251c;
+  width: 900px;
+  margin-left: 350px;
+  
+  
+}
+
+.card-bicis{
+  height: 550px;
+ 
+  background-color: #29251c;
+  color: #f1f1f1;
 }
 
 
+.img-carrusel{
+  height: 800px;
+  
+}
+
+
+.imagen-bicis-card{
+  height: 400px;
+}
 
 
 
@@ -50,3 +112,37 @@
     height: 300px;
 }
 
+
+.formulario-contacto{
+  margin-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-align: center;
+
+
+}
+.form-login{
+  margin-top: 20px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #29251c;
+  color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 300px;
+  
+}
