@@ -4,6 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
@@ -13,28 +16,34 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container fluid className="dashboard-container">
+      {/* Navbar */}
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar.Brand href="/">Team Bukana Dashboard</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
       {/* Banner */}
-      <Row>
-        <Col md={12}>
-          <div style={{ backgroundColor: '#ddd', height: '100px', textAlign: 'center', padding: '20px' }}>
-            <h2>Bienvenido al Dashboard</h2>
-          </div>
+      <Row className="banner">
+        <Col md={12} className="text-center">
+          <h2>Bienvenido al Dashboard</h2>
         </Col>
       </Row>
 
+      {/* Main Content */}
       <Row className="mt-4">
-        {/* Left Sidebar */}
-        <Col md={2}>
-          <div style={{ backgroundColor: '#eee', height: '400px' }}></div>
-        </Col>
-
-        {/* Main Content */}
-        <Col md={8} className="text-center">
+        <Col md={12} className="text-center">
           <Button
             variant="primary"
             size="lg"
-            className="mb-3"
+            className="mb-3 action-button"
             onClick={() => navigateTo('/register')}
           >
             Registrar Ciclista
@@ -43,15 +52,11 @@ const Dashboard: React.FC = () => {
           <Button
             variant="secondary"
             size="lg"
+            className="action-button"
             onClick={() => navigateTo('/datos-cilcistas')}
           >
             Ver Ciclistas
           </Button>
-        </Col>
-
-        {/* Right Sidebar */}
-        <Col md={2}>
-          <div style={{ backgroundColor: '#eee', height: '400px' }}></div>
         </Col>
       </Row>
     </Container>

@@ -1,0 +1,28 @@
+.dashboard-container {
+    padding: 0;
+  }
+  
+  .banner {
+    background-color: #343a40;
+    color: white;
+    padding: 30px 0;
+    margin-bottom: 20px;
+  }
+  
+  .action-button {
+    width: 200px;
+    margin: 10px;
+  }
+  
+  .navbar-dark .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+  }
+  
