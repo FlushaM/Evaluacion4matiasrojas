@@ -23,9 +23,9 @@ const Dashboard: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            
+            
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -37,8 +37,13 @@ const Dashboard: React.FC = () => {
         </Col>
       </Row>
 
+      {/* Dark Section */}
+      <Row className="dark-section">
+        <Col md={12}></Col>
+      </Row>
+
       {/* Main Content */}
-      <Row className="mt-4">
+      <Row className="main-content">
         <Col md={12} className="text-center">
           <Button
             variant="primary"
@@ -58,6 +63,11 @@ const Dashboard: React.FC = () => {
             Ver Ciclistas
           </Button>
         </Col>
+      </Row>
+
+      {/* Dark Section */}
+      <Row className="dark-section">
+        <Col md={12}></Col>
       </Row>
     </Container>
   );

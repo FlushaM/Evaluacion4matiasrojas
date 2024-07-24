@@ -33,7 +33,7 @@ export default function LandingPage() {
         <Col md={12}>
           <Carousel >
             <Carousel.Item>
-            <iframe width="100%" height="800px" src="https://www.youtube.com/embed/N2IJFzhW_Gc?si=GAEle9THBI5AHa-z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="800px" src="https://www.youtube.com/embed/N2IJFzhW_Gc?si=GAEle9THBI5AHa-z" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               <Carousel.Caption>
                 <h3>Rutas Mortales</h3>
                 <p>Mtb en peru rutas incas.</p>
@@ -75,6 +75,7 @@ export default function LandingPage() {
           ></div>
         </Col>
 
+        
         <Col md={8}>
           <Row className="mb-custom  p-5">
             <Col md={{span:12}} className="mb-custom">
@@ -84,6 +85,7 @@ export default function LandingPage() {
               <p>Te invitamos a unirte a esta gran comunidad bukana a disfrutar del bello deporte del MTB.</p>
             </Col>
           </Row>
+        
 
           <Row className="mb-custom  p-0  tamaño"  >
             <Col md={4} className="mb-custom">

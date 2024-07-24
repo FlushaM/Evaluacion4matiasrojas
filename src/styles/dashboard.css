@@ -9,6 +9,16 @@
     margin-bottom: 20px;
   }
   
+  .dark-section {
+    background-color: #343a40;
+    height: 50px;
+  }
+  
+  .main-content {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+  }
+  
   .action-button {
     width: 200px;
     margin: 10px;
