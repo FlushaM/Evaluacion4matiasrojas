@@ -1,8 +1,10 @@
+// src/componentes/RegisterForm.tsx
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { registrarCiclista } from '../pages/Firebase/Promesas';
 
-const Registrar: React.FC = () => {
+
+const RegisterForm: React.FC = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -27,7 +29,6 @@ const Registrar: React.FC = () => {
     try {
       await registrarCiclista(formData);
       alert('Ciclista registrado exitosamente');
-      // Limpiar el formulario después del registro
       setFormData({
         nombre: '',
         apellido: '',
@@ -45,10 +46,10 @@ const Registrar: React.FC = () => {
   };
 
   return (
-    <Container>
+    <Container className="form-container">
       <Row className="justify-content-md-center">
-        <Col md={6}>
-          <h2>Registro de Ciclistas</h2>
+        <Col md={12}>
+          <h2 className="form-title">Registro de Ciclistas</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formNombre">
               <Form.Label>Nombre</Form.Label>
@@ -151,7 +152,7 @@ const Registrar: React.FC = () => {
               />
             </Form.Group>
 
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="primary" >
               Registrar
             </Button>
           </Form>
@@ -161,4 +162,4 @@ const Registrar: React.FC = () => {
   );
 };
 
-export default Registrar;
+export default RegisterForm;

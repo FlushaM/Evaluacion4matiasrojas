@@ -2,6 +2,8 @@ import { addDoc, collection, doc, getDoc, getDocs, updateDoc, deleteDoc } from "
 import { db } from "./Firebase";
 import { Ciclista } from "../Interfaces/interfaces";
 
+
+//Funcion para registrar cilistas 
 export const registrarCiclista = async (formData: any) => {
   try {
     const docRef = await addDoc(collection(db, 'ciclistas'), formData);
@@ -12,6 +14,8 @@ export const registrarCiclista = async (formData: any) => {
   }
 };
 
+
+//Obtenemos los cilcistas 
 export const obtenerCiclistas = async () => {
   const querySnapshot = await getDocs(collection(db, "ciclistas"));
   let ciclistas: Ciclista[] = [];
@@ -72,6 +76,7 @@ export const eliminarCiclista = async (key: string) => {
   await deleteDoc(ref);
 };
 
+//Funcion creada para el login del usuario desde la base de datos con admin admin
 export const getAdminUser = async () => {
   try {
     const docRef = doc(db, 'admin', 'admin');
@@ -85,5 +90,15 @@ export const getAdminUser = async () => {
   } catch (error) {
     console.error("Error al obtener el documento:", error);
     throw error;
+  }
+};
+
+export const registrarUsuario = async (formData: any) => {
+  try {
+    const docRef = await addDoc(collection(db, 'usuarios'), formData);
+    console.log('Documento escrito con ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error al añadir documento: ', e);
+    throw e;
   }
 };

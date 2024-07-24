@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import { Span } from 'next/dist/trace';
 
-
+//Utilizo container para modifcar el display 
 export default function LandingPage() {
   return (
     <Container >
@@ -19,7 +19,7 @@ export default function LandingPage() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="#register">Registro</Nav.Link>
+            <Nav.Link href="/RegisterUser">Registro</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -33,7 +33,7 @@ export default function LandingPage() {
         <Col md={12}>
           <Carousel >
             <Carousel.Item>
-            <iframe width="100%" height="800px" src="https://www.youtube.com/embed/N2IJFzhW_Gc?si=GAEle9THBI5AHa-z" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="800px" src="https://www.youtube.com/embed/N2IJFzhW_Gc?si=GAEle9THBI5AHa-z" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
               <Carousel.Caption>
                 <h3>Rutas Mortales</h3>
                 <p>Mtb en peru rutas incas.</p>
@@ -77,15 +77,7 @@ export default function LandingPage() {
 
         
         <Col md={8}>
-          <Row className="mb-custom  p-5">
-            <Col md={{span:12}} className="mb-custom">
-              <div className='hero-custom-img'
-                style={{ backgroundImage: `url('/img/foto1.jpg')`, height: '200px', backgroundSize: 'cover', backgroundPosition: 'center' }}
-              ></div>
-              <p>Te invitamos a unirte a esta gran comunidad bukana a disfrutar del bello deporte del MTB.</p>
-            </Col>
-          </Row>
-        
+
 
           <Row className="mb-custom  p-0  tamaño"  >
             <Col md={4} className="mb-custom">
@@ -93,7 +85,7 @@ export default function LandingPage() {
                 <Card.Img variant="top" src='img/mtbfoto.jpg' className='imagen-bicis-card' />
                 <Card.Body>
                   <Card.Title>MTB</Card.Title>
-                  <Card.Text>Mountain biking competitions</Card.Text>
+                  <Card.Text>Competiciones Mountain biking </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -102,7 +94,7 @@ export default function LandingPage() {
                 <Card.Img variant="top" src='img/foto1.jpg' className='imagen-bicis-card' />
                 <Card.Body>
                   <Card.Title>XC</Card.Title>
-                  <Card.Text>Cross-country competitions</Card.Text>
+                  <Card.Text>Competiciones Cross-country  </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -111,7 +103,7 @@ export default function LandingPage() {
                 <Card.Img variant="top" src="img/dhfoto.jpg" className='imagen-bicis-card'/>
                 <Card.Body>
                   <Card.Title>DH</Card.Title>
-                  <Card.Text>Downhill competitions</Card.Text>
+                  <Card.Text>Competiciones Downhill </Card.Text>
                 </Card.Body>
               </Card>
             </Col>

@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { getAdminUser } from './Firebase/Promesas';
 import Image from 'next/image';
 
-
+//utilizamos la biblioteca router de next para el enrutamiento de las paginas del codigo 
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const [username, setUsername] = useState('');

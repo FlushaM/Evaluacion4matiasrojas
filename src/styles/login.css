@@ -1,3 +1,4 @@
+
 .login-container {
     max-width: 800px;
     margin: auto;
@@ -5,34 +6,33 @@
     background-color: #f7f7f7;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-form {
+}
+
+.login-form {
     padding: 20px;
-  }
-  
-  .login-form .form-label {
+}
+
+.login-form .form-label {
     font-weight: bold;
-  }
-  
-  .login-form .form-control {
+}
+
+.login-form .form-control {
     border-radius: 5px;
-  }
-  
-  .login-form .btn-primary {
+}
+
+.login-form .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
     transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  .login-form .btn-primary:hover {
+}
+
+.login-form .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
-  }
-  
-  footer {
+}
+
+footer {
     margin-top: 20px;
     font-size: 14px;
     color: #666;
-  }
-  
+}

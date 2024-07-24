@@ -1,10 +1,10 @@
-import RegisterForm from '@/componentes/RegisterForm';
+// src/pages/register.tsx
+import RegisterUserForm from '@/componentes/RegisterUserForm';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
 
 export default function Register() {
   return (
@@ -25,10 +25,8 @@ export default function Register() {
         </Col>
         
         <Col md={8}>
-          <RegisterForm />
+          <RegisterUserForm />
         </Col>
-
-
       </Row>
     </Container>
   );

@@ -1,0 +1,23 @@
+
+.form-container {
+    margin-top: 0px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .sidebar-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+
+
+  

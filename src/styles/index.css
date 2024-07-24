@@ -1,21 +1,21 @@
-/* styles/index.css */
+
 body{
   background-color: #e7ddd3;
 }
 .mt-custom {
-  margin-top: 70px;  /* Puedes ajustar el valor según necesites */
+  margin-top: 70px;  
 }
 
 .mb-custom {
-  margin-bottom: 70px;  /* Puedes ajustar el valor según necesites */
+  margin-bottom: 70px;  
 }
 
 .pt-custom {
-  padding-top: 70px;  /* Puedes ajustar el valor según necesites */
+  padding-top: 70px;  
 }
 
 .pb-custom {
-  padding-bottom: 70px;  /* Puedes ajustar el valor según necesites */
+  padding-bottom: 70px;  
 }
 
 

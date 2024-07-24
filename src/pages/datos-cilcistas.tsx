@@ -1,19 +1,23 @@
-// src/pages/DatosCiclistas.tsx
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import { Table, Button, Modal, Form, Container, Navbar, Nav } from 'react-bootstrap';
 import { obtenerCiclistas, modificarCiclista, eliminarCiclista } from './Firebase/Promesas';
 import { Ciclista } from '@/pages/Interfaces/interfaces';
 
+import LoadingProgressBar from '../componentes/BarraProgreso';
+
 const DatosCiclistas: React.FC = () => {
   const [ciclistas, setCiclistas] = useState<Ciclista[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedCiclista, setSelectedCiclista] = useState<Ciclista | null>(null);
 
   useEffect(() => {
     const fetchCiclistas = async () => {
+      setLoading(true);
       const data = await obtenerCiclistas();
       setCiclistas(data);
+      setLoading(false);
     };
     fetchCiclistas();
   }, []);
@@ -33,18 +37,16 @@ const DatosCiclistas: React.FC = () => {
       await modificarCiclista(selectedCiclista);
       setShowModal(false);
       setSelectedCiclista(null);
-      // Reload ciclistas data
       const data = await obtenerCiclistas();
       setCiclistas(data);
     }
   };
 
   const handleConfirmDelete = async () => {
-    if (selectedCiclista) {
+    if (selectedCiclista && selectedCiclista.key) {
       await eliminarCiclista(selectedCiclista.key);
       setShowDeleteModal(false);
       setSelectedCiclista(null);
-      // Reload ciclistas data
       const data = await obtenerCiclistas();
       setCiclistas(data);
     }
@@ -61,41 +63,56 @@ const DatosCiclistas: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Datos de Ciclistas</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Contraseña</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Sexo</th>
-            <th>Categoría</th>
-            <th>Bicicleta</th>
-            <th>Opinión</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ciclistas.map((ciclista) => (
-            <tr key={ciclista.key}>
-              <td>{ciclista.nombre}</td>
-              <td>{ciclista.apellido}</td>
-              <td>{ciclista.contraseña}</td>
-              <td>{ciclista.fechaNacimiento}</td>
-              <td>{ciclista.sexo}</td>
-              <td>{ciclista.categoria}</td>
-              <td>{ciclista.bicicleta}</td>
-              <td>{ciclista.opinion}</td>
-              <td>
-                <Button variant="warning" onClick={() => handleEdit(ciclista)}>Modificar</Button>{' '}
-                <Button variant="danger" onClick={() => handleDelete(ciclista)}>Eliminar</Button>
-              </td>
+    <Container fluid className="datos-container">
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar.Brand href="/">Team Bukana Dashboard</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="/dashboard">Menu</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
+      <Container className="mt-5 datos-content">
+        <h2 className="text-center">Datos de Ciclistas</h2>
+        <LoadingProgressBar isLoading={loading} />
+        <Table striped bordered hover className="mt-4 text-center datos-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Contraseña</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Sexo</th>
+              <th>Categoría</th>
+              <th>Bicicleta</th>
+              <th>Opinión</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {ciclistas.map((ciclista) => (
+              <tr key={ciclista.key}>
+                <td>{ciclista.nombre}</td>
+                <td>{ciclista.apellido}</td>
+                <td>{ciclista.contraseña}</td>
+                <td>{ciclista.fechaNacimiento}</td>
+                <td>{ciclista.sexo}</td>
+                <td>{ciclista.categoria}</td>
+                <td>{ciclista.bicicleta}</td>
+                <td>{ciclista.opinion}</td>
+                <td>
+                  <Button variant="warning" className="mr-2" onClick={() => handleEdit(ciclista)}>Modificar</Button>
+                  <Button variant="danger" onClick={() => handleDelete(ciclista)}>Eliminar</Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Container>
 
       {/* Modal para Modificar Ciclista */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -214,7 +231,7 @@ const DatosCiclistas: React.FC = () => {
           <Button variant="danger" onClick={handleConfirmDelete}>Eliminar</Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </Container>
   );
 };
 
