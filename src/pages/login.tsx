@@ -1,5 +1,3 @@
-// src/pages/login.tsx
-
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Container from 'react-bootstrap/Container';
@@ -28,9 +26,9 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Container className="form-login">
-      <h2>Login</h2>
-      <Form onSubmit={handleLogin}>
+    <Container className="login-container mt-5">
+      <h2 className="text-center mb-4">Login</h2>
+      <Form onSubmit={handleLogin} className="login-form">
         <Form.Group controlId="formUsername">
           <Form.Label>Nombre de usuario</Form.Label>
           <Form.Control
@@ -51,7 +49,7 @@ const LoginPage: React.FC = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="w-100 mt-3">
           Iniciar sesión
         </Button>
       </Form>

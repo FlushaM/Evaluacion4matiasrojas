@@ -129,20 +129,3 @@ body{
 
 
 }
-.form-login{
-  margin-top: 20px;
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.5px;
-  font-weight: bold;
-  text-align: center;
-  background-color: #29251c;
-  color: #f1f1f1;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-  border: none;
-  cursor: pointer;
-  width: 300px;
-  
-}
